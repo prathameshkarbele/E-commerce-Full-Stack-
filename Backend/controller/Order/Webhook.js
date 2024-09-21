@@ -77,12 +77,12 @@ const webhooks = async (req, res) => {
         }),
         totalAmount: session.amount_total / 100,
       };
-      console.log(orderDetails)
+      console.log(orderDetails, "checkout.session.completed")
       const order = new orderModel(orderDetails);
       const saveOrder = await order.save();
       console.log(session.metadata.userId, "userId from session metadata");
       if(saveOrder?.id){
-       const deleteCardItems = await CartproductModel.deleteMany({ userId:session.metadata.userId });
+       const deleteCardItems = await CartproductModel.deleteMany({ userId:session?.metadata?.userId });
       }
 
       // console.log(order, "ProductDetails");

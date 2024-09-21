@@ -25,6 +25,7 @@ const FilteredProduct = require('../controller/product/filteredProduct');
 const PaymentController = require('../controller/Order/PaymentController');
 const webhooks = require('../controller/Order/Webhook');
 const OrderController = require('../controller/Order/OrderController');
+const AllOrderController = require('../controller/Order/AllOrderControllrer');
 
 //admin pannel 
 router.get("/all-user",authToken,  AllUsers)
@@ -55,6 +56,7 @@ router.post("/Delete-card-product",authToken,  DeleteProductCart)
 router.post("/checkout",authToken,  PaymentController)
 router.post("/webhook",  webhooks)
 router.get("/order-list",authToken,  OrderController)
+router.get("/all-order",authToken,  AllOrderController)
 
 
 
